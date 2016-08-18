@@ -1,0 +1,23 @@
+language: python
+python: 2.7
+sudo: false
+branches:
+  only:
+  - master
+  - develop
+services:
+- docker
+env:
+  global:
+  - AWS_ACCESS_KEY_ID='foo' AWS_DEFAULT_REGION='us-east-1' AWS_SECRET_ACCESS_KEY='bar'
+install:
+- docker run -d -p 5000:5000 --name s3 briefy/aws-test:latest s3
+- pip install -r requirements.txt
+- buildout -c buildout.cfg
+script:
+- bin/code-analysis
+- bin/test
+after_success:
+- make docs
+notifications:
+  slack: robyandjack:qxjOPwcrGEtVx3aCQBr812t9
