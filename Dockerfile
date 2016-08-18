@@ -1,4 +1,4 @@
-FROM plone5
+FROM briefy/plone:latest
 MAINTAINER Briefy <developers@briefy.co>
 
 USER root
