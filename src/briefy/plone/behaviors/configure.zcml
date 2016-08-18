@@ -1,0 +1,39 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n_domain="briefy.plone">
+
+    <include package="plone.behavior" file="meta.zcml" />
+
+    <plone:behavior
+        title="Block Layout"
+        description="Layout settings to be applied to blocks."
+        factory="plone.behavior.AnnotationStorage"
+        provides=".layout.ILayout"
+        />
+
+    <plone:behavior
+        title="Block call to action"
+        description="Call to action to be applied to blocks."
+        factory="plone.behavior.AnnotationStorage"
+        provides=".call_to_action.ICallToAction"
+        />
+
+    <plone:behavior
+        title="SEO: Canonical URL"
+        description="Implement Canonical URL per content in Plone."
+        provides=".canonical.ICanonicalURL"
+        factory="plone.behavior.AnnotationStorage"
+        marker=".interfaces.ISEOBehavior"
+        />
+
+    <plone:behavior
+        title="SEO: Meta Robots"
+        description="Implement metatag robots per content in Plone."
+        provides=".metarobots.IMetaRobots"
+        factory="plone.behavior.AnnotationStorage"
+        marker=".interfaces.ISEOBehavior"
+        />
+
+</configure>

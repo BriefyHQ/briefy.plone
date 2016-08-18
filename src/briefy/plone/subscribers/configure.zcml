@@ -1,0 +1,32 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n_domain="briefy.plone">
+
+    <!-- Language Root Folder -->
+    <subscriber
+        for="plone.app.multilingual.interfaces.ILanguageRootFolder
+             zope.lifecycleevent.IObjectAddedEvent"
+        handler=".lrf.create_groups"
+     />
+
+    <subscriber
+        for="plone.app.multilingual.interfaces.ILanguageRootFolder
+             zope.lifecycleevent.IObjectAddedEvent"
+        handler=".lrf.create_home"
+     />
+
+    <subscriber
+        for="plone.app.multilingual.interfaces.ILanguageRootFolder
+             zope.lifecycleevent.IObjectAddedEvent"
+        handler=".lrf.create_blog"
+     />
+
+    <!-- Composite Page -->
+    <subscriber
+        for="briefy.plone.content.composite.ICompositePage
+             zope.lifecycleevent.IObjectAddedEvent"
+        handler=".composite.remove_portlets"
+     />
+
+</configure>

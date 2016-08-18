@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="briefy.plone">
+
+  <!-- Profiles -->
+  <gs:registerProfile
+      name="default"
+      title="Briefy: CMS Setup"
+      directory="profiles/default"
+      description="Setup CMS component for Briefy.co"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler="briefy.plone.setuphandlers.run_after"
+      />
+
+  <include package='.upgrades' />
+
+  <!-- Hide profiles -->
+  <utility factory=".config.HiddenProducts" name="briefy.plone" />
+  <utility factory=".config.HiddenProfiles" name="briefy.plone" />
+
+</configure>

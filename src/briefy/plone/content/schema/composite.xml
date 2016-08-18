@@ -1,0 +1,18 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <fieldset name="layout" label="Layout" description="Layout settings">
+      <field name="display_header" type="zope.schema.Bool" lingua:independent="true">
+        <default>True</default>
+        <description>Should we display the (default) header for this composite page?</description>
+        <title>Header</title>
+        <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
+      </field>
+      <field name="display_footer" type="zope.schema.Bool">
+        <default>True</default>
+        <description>Should we display the (default) footer on this page?</description>
+        <title>Footer</title>
+        <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
+      </field>
+    </fieldset>
+  </schema>
+</model>

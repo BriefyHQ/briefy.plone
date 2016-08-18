@@ -1,0 +1,8 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <includeOverrides file="overrides.zcml" />
+
+    <adapter factory=".serializer.SerializeBlockCheckerToJson" />
+    <adapter factory=".serializer.SerializeCompositeToJson" />
+
+</configure>

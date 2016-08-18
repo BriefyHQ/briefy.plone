@@ -1,0 +1,6 @@
+<layers>
+    <layer
+        name="briefy.plone"
+        interface="briefy.plone.interfaces.IBriefyPloneLayer"
+    />
+</layers>

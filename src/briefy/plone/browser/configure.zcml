@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Static Resources-->
+    <browser:resourceDirectory
+        name="briefy.plone"
+        directory="static"
+        />
+
+</configure>

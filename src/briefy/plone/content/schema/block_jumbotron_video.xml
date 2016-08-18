@@ -1,0 +1,13 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="url" type="zope.schema.TextLine">
+      <description>URL to the video.</description>
+      <required>True</required>
+      <title>Video URL</title>
+    </field>
+    <field name="image" type="plone.namedfile.field.NamedBlobImage">
+      <description>Image to be displayed before the video starts.</description>
+      <title>Cover image</title>
+    </field>
+  </schema>
+</model>

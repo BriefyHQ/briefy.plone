@@ -1,0 +1,34 @@
+<configure
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n_domain="briefy.plone">
+
+    <include package="plone.app.contenttypes" />
+    <include package="plone.restapi" />
+    <include package="plone.app.multilingual" />
+    <include package='collective.monkeypatcher' />
+    <include package='plone.app.contenttypes' />
+
+    <include file='permissions.zcml' />
+    <include file='profiles.zcml' />
+
+    <include package='.browser' />
+    <include package='.behaviors' />
+    <include package='.content' />
+    <include package='.traversal' />
+
+    <include package='.subscribers' />
+    <include package='.adapters' />
+    <include package='.vocabularies' />
+
+    <plone:CORSPolicy
+      allow_origin="*"
+      allow_methods="GET"
+      allow_credentials="false"
+      expose_headers="Content-Length"
+      allow_headers="Accept,Content-Type,X-Locale"
+      max_age="3600"
+    />
+
+</configure>

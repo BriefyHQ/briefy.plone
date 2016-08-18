@@ -1,0 +1,15 @@
+.env
+.git
+.github
+.gitignore
+.dockerignore
+.Python
+.installed.cfg
+src/briefy.plone.egg-info
+bin
+buildout.cfg
+develop-eggs
+parts
+pip-selfcheck.json
+requirements.txt
+var
