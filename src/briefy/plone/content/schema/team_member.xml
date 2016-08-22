@@ -28,8 +28,8 @@
             <element>Business</element>
             <element>Finance</element>
             <element>Management</element>
+            <element>Operations</element>
             <element>Product</element>
-            <element>Project</element>
             <element>Tech</element>
           </values>
         </field>
