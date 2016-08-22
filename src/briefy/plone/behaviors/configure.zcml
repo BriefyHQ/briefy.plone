@@ -24,7 +24,7 @@
         title="SEO: Canonical URL"
         description="Implement Canonical URL per content in Plone."
         provides=".canonical.ICanonicalURL"
-        factory="plone.behavior.AnnotationStorage"
+        factory="briefy.plone.behaviors.canonical.CanonicalURL"
         marker=".interfaces.ISEOBehavior"
         />
 

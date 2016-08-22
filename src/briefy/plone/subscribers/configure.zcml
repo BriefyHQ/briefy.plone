@@ -19,6 +19,12 @@
     <subscriber
         for="plone.app.multilingual.interfaces.ILanguageRootFolder
              zope.lifecycleevent.IObjectAddedEvent"
+        handler=".lrf.create_roster"
+     />
+
+    <subscriber
+        for="plone.app.multilingual.interfaces.ILanguageRootFolder
+             zope.lifecycleevent.IObjectAddedEvent"
         handler=".lrf.create_blog"
      />
 

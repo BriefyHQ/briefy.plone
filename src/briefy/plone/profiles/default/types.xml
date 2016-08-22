@@ -10,4 +10,8 @@
  <object name="block_page" meta_type="Dexterity FTI"/>
  <object name="block_header" meta_type="Dexterity FTI"/>
 
+ <!-- Team pages -->
+ <object name="roster" meta_type="Dexterity FTI"/>
+ <object name="team_member" meta_type="Dexterity FTI"/>
+
 </object>

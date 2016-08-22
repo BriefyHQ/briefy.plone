@@ -1,31 +1,39 @@
 # -*- coding: utf-8 -*-
-"""JSON Serializer for Composite Page."""
+"""JSON Serializer for Contents."""
 from briefy.plone.content.block_checker import IBlockChecker
 from briefy.plone.content.composite import ICompositePage
-from briefy.plone.interfaces import IBriefyPloneLayer
+from briefy.plone.content.roster import IRoster
+from briefy.plone.interfaces import IBriefyPloneJSONLayer
 from plone import api
 from plone.dexterity.interfaces import IDexterityContent
+from plone.dexterity.interfaces import IDexterityContainer
 from plone.restapi.batching import HypermediaBatch
 from plone.restapi.interfaces import ISerializeToJson
-from plone.restapi.serializer.dxcontent import SerializeToJson
+from plone.restapi.serializer.dxcontent import SerializeToJson as BaseSerializer
 from zope.component import adapter
 from zope.component import getMultiAdapter
 from zope.interface import implementer
-from zope.interface import Interface
 
 
 @implementer(ISerializeToJson)
-@adapter(IDexterityContent, IBriefyPloneLayer, Interface)
-class DXSerializeToJson(SerializeToJson):
+@adapter(IDexterityContent, IBriefyPloneJSONLayer)
+class SerializeToJson(BaseSerializer):
     """Serialize Briefy CMS objects to JSON."""
 
     def __call__(self):
         """Execute the serialization."""
-        result = super(DXSerializeToJson, self).__call__()
+        result = super(SerializeToJson, self).__call__()
+        # Remove parent and review_state keys
+        keys = ('parent', 'review_state')
+        for key in keys:
+            if key in result:
+                del(result[key])
         return result
 
 
-class SerializeFolderishToJson(DXSerializeToJson):
+@implementer(ISerializeToJson)
+@adapter(IDexterityContainer, IBriefyPloneJSONLayer)
+class SerializeFolderishToJson(SerializeToJson):
     """Serialize a Briefy Folderish object to JSON."""
 
     def _build_query(self):
@@ -37,19 +45,29 @@ class SerializeFolderishToJson(DXSerializeToJson):
         }
         return query
 
+    def get_breadcrumbs(self):
+        """Return breadcrumbs for this content."""
+        breadcrumbs_view = getMultiAdapter((self.context, self.request), name='breadcrumbs_view')
+        result = []
+        for crumb in breadcrumbs_view.breadcrumbs():
+            result.append({
+                'title': crumb['Title'],
+                'url': crumb['absolute_url']
+            })
+        return result
+
     def __call__(self):
         """Execute the serialization."""
         folder_metadata = super(SerializeFolderishToJson, self).__call__()
-
+        breadcrumbs = self.get_breadcrumbs()
         query = self._build_query()
-
         catalog = api.portal.get_tool('portal_catalog')
         brains = catalog(query)
 
         batch = HypermediaBatch(self.request, brains)
 
         result = folder_metadata
-        result['@id'] = batch.canonical_url
+        result['@id'] = self.context.absolute_url()
         result['items_total'] = batch.items_total
         if batch.links:
             result['batching'] = batch.links
@@ -58,16 +76,23 @@ class SerializeFolderishToJson(DXSerializeToJson):
             getMultiAdapter((brain.getObject(), self.request), ISerializeToJson)()
             for brain in batch
         ]
+        result['breadcrumbs'] = breadcrumbs
         return result
 
 
 @implementer(ISerializeToJson)
-@adapter(ICompositePage, Interface)
+@adapter(ICompositePage, IBriefyPloneJSONLayer)
 class SerializeCompositeToJson(SerializeFolderishToJson):
     """Serialize a Composite Page to JSON."""
 
 
 @implementer(ISerializeToJson)
-@adapter(IBlockChecker, Interface)
+@adapter(IBlockChecker, IBriefyPloneJSONLayer)
 class SerializeBlockCheckerToJson(SerializeFolderishToJson):
     """Serialize a Block checker to JSON."""
+
+
+@implementer(ISerializeToJson)
+@adapter(IRoster, IBriefyPloneJSONLayer)
+class SerializeRosterToJson(SerializeFolderishToJson):
+    """Serialize a Roster to JSON."""

@@ -36,8 +36,8 @@ class ICallToAction(model.Schema):
     )
 
     call_to_action_url = schema.TextLine(
-        title=_(u'Text'),
-        description=_(u'Text to be displayed on the call to action.'),
+        title=_(u'URL'),
+        description=_(u'.'),
         required=False
     )
 

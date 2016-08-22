@@ -55,6 +55,7 @@
             <element>Folder</element>
             <element>composite</element>
             <element>Document</element>
+            <element>roster</element>
         </value>
     </record>
 

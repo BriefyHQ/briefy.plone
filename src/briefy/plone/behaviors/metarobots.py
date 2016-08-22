@@ -12,7 +12,6 @@ from zope.schema.vocabulary import SimpleVocabulary
 metarobots_vocabulary = SimpleVocabulary([
     SimpleTerm('noindex', 'noindex', u'noindex'),
     SimpleTerm('nofollow', 'nofollow', u'nofollow'),
-    SimpleTerm('none', 'none', u'none'),
     SimpleTerm('noarchive', 'noarchive', u'noarchive'),
     SimpleTerm('nosnippet', 'nosnippet', u'nosnippet'),
     SimpleTerm('noodp', 'noodp', u'noodp'),
@@ -39,4 +38,5 @@ class IMetaRobots(model.Schema):
             title=_(u'Available options'),
             vocabulary=metarobots_vocabulary
         ),
+        missing_value='index'
     )

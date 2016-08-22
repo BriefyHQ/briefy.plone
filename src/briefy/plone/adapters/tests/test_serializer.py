@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Test ICanonicalURL behavior."""
+from briefy.plone.interfaces import IBriefyPloneJSONLayer
 from briefy.plone.testing import INTEGRATION_TESTING
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.restapi.interfaces import ISerializeToJson
 from zope.component import getMultiAdapter
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
 
 
 import unittest2 as unittest
@@ -47,7 +50,13 @@ class TestSerialization(unittest.TestCase):
 
     def serialize(self, content):
         """Run the serializer for this content."""
-        serializer = getMultiAdapter((content, self.request), ISerializeToJson)
+        ifaces = [IBriefyPloneJSONLayer, ] + list(
+            directlyProvidedBy(self.request)
+        )
+        directlyProvides(self.request, *ifaces)
+        serializer = getMultiAdapter(
+            (content, self.request), ISerializeToJson
+        )
         return serializer()
 
     def test_composite(self):
@@ -57,12 +66,16 @@ class TestSerialization(unittest.TestCase):
         self.assertEqual(data['@type'], 'composite')
         self.assertEqual(data['id'], 'home')
         self.assertEqual(data['items_total'], 1)
+        self.assertIsNotNone(data['breadcrumbs'])
         # Style
         self.assertTrue(data['display_header'])
         self.assertTrue(data['display_footer'])
         # SEO
-        self.assertIsNone(data['canonical_url'])
-        self.assertIsNone(data['robots'])
+        self.assertEqual(
+            data['canonical_url'],
+            'http://nohost/plone/en/home'
+        )
+        self.assertEqual(data['robots'], 'index')
 
     def test_block_checker(self):
         """Test serialization of a Block Checker."""
@@ -71,6 +84,7 @@ class TestSerialization(unittest.TestCase):
         self.assertEqual(data['@type'], 'block_checker')
         self.assertEqual(data['title'], 'Checker')
         self.assertEqual(data['items_total'], 3)
+        self.assertIsNotNone(data['breadcrumbs'])
         # Style
         self.assertIsNone(data['css_class'])
         self.assertIsNone(data['style_background_color'])

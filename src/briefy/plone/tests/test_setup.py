@@ -46,6 +46,7 @@ class TestInstall(unittest.TestCase):
         self.assertEqual(en.title, 'Briefy English site')
         self.assertIsNotNone(api.group.get('en_editors'))
         self.assertIn('home', en.objectIds())
+        self.assertIn('team', en.objectIds())
         self.assertIn('blog', en.objectIds())
         self.assertIn('media', en.objectIds())
 
@@ -54,6 +55,7 @@ class TestInstall(unittest.TestCase):
         self.assertEqual(de.title, 'Briefy Deutsch site')
         self.assertIsNotNone(api.group.get('de_editors'))
         self.assertIn('home', de.objectIds())
+        self.assertIn('team', de.objectIds())
         self.assertIn('blog', de.objectIds())
         self.assertIn('media', de.objectIds())
 

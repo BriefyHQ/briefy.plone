@@ -1,8 +1,13 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <includeOverrides file="overrides.zcml" />
+    <!-- Content Serializer -->
+    <adapter factory=".content.SerializeToJson" />
+    <adapter factory=".content.SerializeFolderishToJson" />
+    <adapter factory=".content.SerializeBlockCheckerToJson" />
+    <adapter factory=".content.SerializeCompositeToJson" />
+    <adapter factory=".content.SerializeRosterToJson" />
 
-    <adapter factory=".serializer.SerializeBlockCheckerToJson" />
-    <adapter factory=".serializer.SerializeCompositeToJson" />
+    <!-- Field Serializer -->
+    <adapter factory=".field.ImageFieldSerializer" />
 
 </configure>

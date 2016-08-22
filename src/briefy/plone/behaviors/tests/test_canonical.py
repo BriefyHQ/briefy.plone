@@ -54,6 +54,12 @@ class ICanonicalURLTest(unittest.TestCase):
         )
         doc = self.portal['doc-1']
         behavior = ICanonicalURL(doc)
-        self.assertEqual(behavior.canonical_url, None)
+        self.assertEqual(
+            behavior.canonical_url,
+            'http://nohost/plone/doc-1'
+        )
         behavior.canonical_url = u'https://briefy.co/'
-        self.assertEqual(behavior.canonical_url, u'https://briefy.co/')
+        self.assertEqual(
+            behavior.canonical_url,
+            u'https://briefy.co/'
+        )

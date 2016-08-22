@@ -74,6 +74,37 @@ def create_home(obj, event):
     # obj.setDefaultPage('home')
 
 
+def create_roster(obj, event):
+    """Create a Team roster with id team inside the Language Root Folder.
+
+    :param obj: Language Root Folder
+    :type obj: plone.dexterity.content.Container
+    :param event: Event
+    :type event: event
+    """
+    id = 'team'
+    title = u'Our Team'
+    description = (
+        u'This is our amazing team.'
+    )
+    tags = [
+        'team',
+        'briefy',
+        'berlin',
+        'startup',
+    ]
+    if id not in obj.objectIds():
+        # Create roster object
+        api.content.create(
+            type='roster', id=id, container=obj,
+            title=title, description=description,
+            subject=tags
+        )
+
+    # No more rosters to be added here
+    obj.manage_permission('Briefy: Add Roster', roles=[])
+
+
 def create_blog(obj, event):
     """Create a blog folder inside this Language Root Folder.
 

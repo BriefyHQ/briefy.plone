@@ -2,10 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     i18n_domain="briefy.plone">
 
-<!--   <permission
-    id="briefy.plone.AddCompositePage"
-    title="Briefy Plone: Add CompositePage"
+  <permission
+    id="briefy.plone.AddRoster"
+    title="Briefy: Add Roster"
     />
- -->
+
 
 </configure>

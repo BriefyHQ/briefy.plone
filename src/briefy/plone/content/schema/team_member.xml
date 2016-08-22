@@ -1,0 +1,60 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="title" type="zope.schema.TextLine">
+        <description>Name of this team member.</description>
+        <required>True</required>
+        <title>Name</title>
+    </field>
+    <field name="description" type="zope.schema.TextLine">
+        <description>A small biography.</description>
+        <required>True</required>
+        <title>Bio</title>
+    </field>
+    <field name="email" type="zope.schema.TextLine">
+      <description>Please inform the email of this person.</description>
+      <required>True</required>
+      <title>Email</title>
+    </field>
+    <field name="image" type="plone.namedfile.field.NamedBlobImage">
+      <description>Photo of this person.</description>
+      <title>Picture</title>
+    </field>
+    <fieldset name="briefy" label="Job Details" description="Details about this member @ Briefy.">
+        <field name="team" type="zope.schema.Choice">
+          <description>This person is a member of each team.</description>
+          <required>True</required>
+          <title>Team</title>
+          <values>
+            <element>Business</element>
+            <element>Finance</element>
+            <element>Management</element>
+            <element>Product</element>
+            <element>Project</element>
+            <element>Tech</element>
+          </values>
+        </field>
+        <field name="job_title" type="zope.schema.TextLine">
+          <description>Describe the title of this person.</description>
+          <required>True</required>
+          <title>Job Title</title>
+        </field>
+    </fieldset>
+    <fieldset name="social_networks" label="Social Networks" description="Link to social networks of this user">
+        <field name="linkedin" type="zope.schema.TextLine">
+          <description>Full path to the LinkedIn profile. i.e.: https://br.linkedin.com/in/rudaportofilgueiras.</description>
+          <required>False</required>
+          <title>LinkedIn profile</title>
+        </field>
+        <field name="twitter" type="zope.schema.TextLine">
+          <description>Twitter user handle. i.e.: @rudaporto.</description>
+          <required>False</required>
+          <title>Twitter profile</title>
+        </field>
+        <field name="instagram" type="zope.schema.TextLine">
+          <description>Instagram. i.e.: rudaporto.</description>
+          <required>False</required>
+          <title>Instagram profile</title>
+        </field>
+    </fieldset>
+  </schema>
+</model>

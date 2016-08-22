@@ -54,6 +54,6 @@ class IMetaRobotsTest(unittest.TestCase):
         )
         doc = self.portal['doc-1']
         behavior = IMetaRobots(doc)
-        self.assertEqual(behavior.robots, None)
+        self.assertEqual(behavior.robots, 'index')
         behavior.robots = [u'nofollow', ]
         self.assertEqual(behavior.robots, [u'nofollow', ])
