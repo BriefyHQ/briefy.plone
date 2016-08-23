@@ -25,11 +25,13 @@
           <required>True</required>
           <title>Team</title>
           <values>
-            <element>Business</element>
+            <element>Business Development</element>
             <element>Finance</element>
             <element>Management</element>
-            <element>Operations</element>
+            <element>Project Management</element>
             <element>Product</element>
+            <element>QA</element>
+            <element>Scouting</element>
             <element>Tech</element>
           </values>
         </field>
