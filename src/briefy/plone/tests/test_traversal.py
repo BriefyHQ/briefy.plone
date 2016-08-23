@@ -88,3 +88,18 @@ class TraversalTestCase(unittest.TestCase):
             browser.open('{0}/@@search'.format(self.portal.absolute_url()))
         except Unauthorized:
             pass
+
+    def test_authorized_when_accessing_whitelisted_views(self):
+        """Test unauthorized is not raised when accessing whitelisted views."""
+        from zExceptions.unauthorized import Unauthorized
+        setRoles(self.portal, TEST_USER_ID, [])
+        browser = self.browser
+        browser.open('{0}/mail_password_form'.format(self.portal.absolute_url()))
+        self.assertEqual(browser.headers['status'], '200 Ok')
+        self.assertIn('text/html', browser.headers['content-type'])
+        self.assertIn('<html', browser.contents)
+
+        try:
+            browser.open('{0}/@@search'.format(self.portal.absolute_url()))
+        except Unauthorized:
+            pass

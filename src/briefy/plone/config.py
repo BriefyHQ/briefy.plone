@@ -31,6 +31,7 @@ ANON_WHITE_LISTED = (
     'config.js',
     'login',
     'mail_password_form',
+    'passwordreset',
     'plonejsi18n',
 )
 
