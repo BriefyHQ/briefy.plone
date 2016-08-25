@@ -31,6 +31,7 @@
   <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+  <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
   <element value="briefy.plone.behaviors.canonical.ICanonicalURL"/>
   <element value="briefy.plone.behaviors.metarobots.IMetaRobots"/>
  </property>

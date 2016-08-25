@@ -56,6 +56,7 @@
             <element>composite</element>
             <element>Document</element>
             <element>roster</element>
+            <element>gallery</element>
         </value>
     </record>
 
