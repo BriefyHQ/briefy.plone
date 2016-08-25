@@ -31,4 +31,6 @@
       max_age="3600"
     />
 
+    <plone:static name="briefy" directory="theme" type="theme" />
+
 </configure>
