@@ -56,4 +56,6 @@ class CanonicalURL(object):
     @canonical_url.setter
     def canonical_url(self, value):
         """Setter for canonical_url."""
-        self.__annotations['canonical_url'] = value
+        if value != self.canonical_url:
+            # Save only if the value is not the same
+            self.__annotations['canonical_url'] = value
