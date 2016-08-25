@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
     xmlns:browser="http://namespaces.zope.org/browser">
 
     <!-- Static Resources-->
@@ -8,5 +9,21 @@
         name="briefy.plone"
         directory="static"
         />
+
+  <browser:page
+      for="briefy.plone.content.interfaces.IBriefyContent"
+      name="view"
+      class="plone.dexterity.browser.view.DefaultView"
+      template="container.pt"
+      permission="zope2.View"
+      />
+
+
+  <z3c:widgetTemplate
+      mode="display"
+      widget="plone.formwidget.namedfile.interfaces.INamedImageWidget"
+      layer="briefy.plone.interfaces.IBriefyPloneLayer"
+      template="widgets/image_display.pt"
+      />
 
 </configure>

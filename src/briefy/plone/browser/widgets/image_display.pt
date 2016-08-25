@@ -1,0 +1,38 @@
+<span id="" class="" i18n:domain="plone"
+      tal:attributes="id view/id;
+                      class view/klass;
+                      style view/style;
+                      title view/title;
+                      lang view/lang;
+                      onclick view/onclick;
+                      ondblclick view/ondblclick;
+                      onmousedown view/onmousedown;
+                      onmouseup view/onmouseup;
+                      onmouseover view/onmouseover;
+                      onmousemove view/onmousemove;
+                      onmouseout view/onmouseout;
+                      onkeypress view/onkeypress;
+                      onkeydown view/onkeydown;
+                      onkeyup view/onkeyup"
+        tal:define="value view/value;
+                    exists python:value is not None;">
+        <div tal:condition="python:exists and fieldname"
+            tal:define="fieldname view/field/__name__ | nothing;
+                           filename view/filename;
+                           filename_encoded view/filename_encoded;
+                           width view/width;
+                           height view/height;
+                           alt view/alt">
+          <img
+              tal:define="
+                    context python:view.context;
+                    scale_func context/@@images;
+                    scaled_image python: getattr(view.context.aq_explicit, fieldname, False) and scale_func.scale(fieldname, scale='large');"
+               tal:replace="structure python: scaled_image.tag()"
+              /><br/>
+            <span>Dimensions: <span tal:replace="width" />px/<span tal:replace="height" />px</span>
+        </div>
+        <span tal:condition="not:exists" class="discreet" i18n:translate="no_image">
+            No image
+        </span>
+</span>
