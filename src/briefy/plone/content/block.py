@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """Base block for a Composite page."""
+from briefy.plone.content.interfaces import IBriefyContent
 from plone.dexterity.content import Container
 from zope.interface import implementer
-from zope.interface import Interface
 
 
-class IBlock(Interface):
+class IBlock(IBriefyContent):
     """Interface for a block object to be added to a Composite Page."""
 
 

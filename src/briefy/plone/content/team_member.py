@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """Team Member content type."""
+from briefy.plone.content.interfaces import IBriefyContent
 from plone.dexterity.content import Container
 from zope.interface import implementer
-from zope.interface import Interface
 
 
-class ITeamMember(Interface):
+class ITeamMember(IBriefyContent):
     """Interface for a Team Member."""
 
 

@@ -4,8 +4,10 @@
     <adapter factory=".content.SerializeToJson" />
     <adapter factory=".content.SerializeFolderishToJson" />
     <adapter factory=".content.SerializeBlockCheckerToJson" />
+    <adapter factory=".content.SerializeBlockColumnsToJson" />
     <adapter factory=".content.SerializeCompositeToJson" />
     <adapter factory=".content.SerializeRosterToJson" />
+    <adapter factory=".content.SerializeGalleryToJson" />
 
     <!-- Field Serializer -->
     <adapter factory=".field.ImageFieldSerializer" />

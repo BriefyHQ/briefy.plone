@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """JSON Serializer for Contents."""
 from briefy.plone.content.block_checker import IBlockChecker
+from briefy.plone.content.block_columns import IBlockColumns
 from briefy.plone.content.composite import ICompositePage
+from briefy.plone.content.gallery import IGallery
 from briefy.plone.content.roster import IRoster
 from briefy.plone.interfaces import IBriefyPloneJSONLayer
 from plone import api
@@ -93,6 +95,18 @@ class SerializeBlockCheckerToJson(SerializeFolderishToJson):
 
 
 @implementer(ISerializeToJson)
+@adapter(IBlockColumns, IBriefyPloneJSONLayer)
+class SerializeBlockColumnsToJson(SerializeFolderishToJson):
+    """Serialize a Block columns to JSON."""
+
+
+@implementer(ISerializeToJson)
 @adapter(IRoster, IBriefyPloneJSONLayer)
 class SerializeRosterToJson(SerializeFolderishToJson):
     """Serialize a Roster to JSON."""
+
+
+@implementer(ISerializeToJson)
+@adapter(IGallery, IBriefyPloneJSONLayer)
+class SerializeGalleryToJson(SerializeFolderishToJson):
+    """Serialize a Gallery to JSON."""
