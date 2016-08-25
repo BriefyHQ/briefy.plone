@@ -20,6 +20,8 @@ class ILayout(model.Schema):
             'style_padding',
             'style_margin',
             'style_background_color',
+            'style_background_width',
+            'style_background_height',
         ]
     )
 
@@ -50,5 +52,17 @@ class ILayout(model.Schema):
     style_background_color = schema.TextLine(
         title=_(u'Background color'),
         description=_(u'If set, override the background color for this element.'),
+        required=False
+    )
+
+    style_background_width = schema.TextLine(
+        title=_(u'Background width'),
+        description=_(u'If set, override the background width for this element.'),
+        required=False
+    )
+
+    style_background_height = schema.TextLine(
+        title=_(u'Background height'),
+        description=_(u'If set, override the background height for this element.'),
         required=False
     )
