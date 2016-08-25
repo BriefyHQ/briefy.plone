@@ -7,6 +7,7 @@ from zope.interface import implementer
 import logging
 
 PROJECTNAME = 'briefy.plone'
+PROFILE_ID = 'briefy.plone:default'
 
 logger = logging.getLogger(PROJECTNAME)
 
