@@ -31,6 +31,7 @@ ANON_WHITE_LISTED = (
     'acl_users',
     'config.js',
     'login',
+    'mail_password',
     'mail_password_form',
     'passwordreset',
     'plonejsi18n',
