@@ -10,6 +10,17 @@ from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 
 
+def _is_request_for_image_scale(physical_path):
+    """Check if this request is for an image scale.
+
+    :param physical_path: Plone content object
+    :type physical_path: object
+    :returns: Returns is this request is for an image scale
+    :rtype: bool
+    """
+    return '@@images' in physical_path
+
+
 def mark_json_request(obj, event):
     """Mark the request if we receive the proper header.
 
@@ -57,8 +68,12 @@ def reject_anonymous(obj, request):
     if api.user.is_anonymous():
         portal = api.portal.get()
         portal_path = portal.getPhysicalPath()
-        url = request.physicalPathFromURL(request['URL'])
-        url = url[len(portal_path):]
+        physical_path = request.physicalPathFromURL(request['URL'])
+        is_image_scale = _is_request_for_image_scale(physical_path)
+        if is_image_scale:
+            # HACK: We should not block images
+            return None
+        url = physical_path[len(portal_path):]
         if url[-1] == 'index_html':
             url.pop()
         item_id = url[0]
