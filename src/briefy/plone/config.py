@@ -34,6 +34,7 @@ ANON_WHITE_LISTED = (
     'mail_password_form',
     'passwordreset',
     'plonejsi18n',
+    'pwreset_form',
 )
 
 SEARCH_BLACKLIST = (
