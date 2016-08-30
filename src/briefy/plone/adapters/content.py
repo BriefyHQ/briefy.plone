@@ -6,10 +6,8 @@ from briefy.plone.content.composite import ICompositePage
 from briefy.plone.content.gallery import IGallery
 from briefy.plone.content.roster import IRoster
 from briefy.plone.interfaces import IBriefyPloneJSONLayer
-from plone import api
 from plone.dexterity.interfaces import IDexterityContent
 from plone.dexterity.interfaces import IDexterityContainer
-from plone.restapi.batching import HypermediaBatch
 from plone.restapi.interfaces import ISerializeToJson
 from plone.restapi.serializer.dxcontent import SerializeToJson as BaseSerializer
 from zope.component import adapter
@@ -38,14 +36,9 @@ class SerializeToJson(BaseSerializer):
 class SerializeFolderishToJson(SerializeToJson):
     """Serialize a Briefy Folderish object to JSON."""
 
-    def _build_query(self):
-        path = '/'.join(self.context.getPhysicalPath())
-        query = {'path': {
-            'depth': 1,
-            'query': path,
-            'sort_on': 'getObjPositionInParent'}
-        }
-        return query
+    def _getObjects(self):
+        context = self.context
+        return context.objectValues()
 
     def get_breadcrumbs(self):
         """Return breadcrumbs for this content."""
@@ -62,21 +55,16 @@ class SerializeFolderishToJson(SerializeToJson):
         """Execute the serialization."""
         folder_metadata = super(SerializeFolderishToJson, self).__call__()
         breadcrumbs = self.get_breadcrumbs()
-        query = self._build_query()
-        catalog = api.portal.get_tool('portal_catalog')
-        brains = catalog(query)
 
-        batch = HypermediaBatch(self.request, brains)
+        batch = self._getObjects()
 
         result = folder_metadata
         result['@id'] = self.context.absolute_url()
-        result['items_total'] = batch.items_total
-        if batch.links:
-            result['batching'] = batch.links
+        result['items_total'] = len(batch)
 
         result['items'] = [
-            getMultiAdapter((brain.getObject(), self.request), ISerializeToJson)()
-            for brain in batch
+            getMultiAdapter((obj, self.request), ISerializeToJson)()
+            for obj in batch
         ]
         result['breadcrumbs'] = breadcrumbs
         return result
