@@ -57,6 +57,7 @@
             <element>Document</element>
             <element>roster</element>
             <element>gallery</element>
+            <element>form</element>
         </value>
     </record>
 

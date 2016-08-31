@@ -1,0 +1,12 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="form" type="zope.schema.Choice">
+        <default>professional-lead</default>
+        <description>Choose a form to show.</description>
+        <missing_value/>
+        <required>True</required>
+        <title>Form type</title>
+        <source>briefy.plone.vocabularies.form_vocabulary</source>
+    </field>
+  </schema>
+</model>
