@@ -16,22 +16,15 @@ def types_registration(context):
     logger.info('Run types registration')
 
 
-def add_gallery_to_navigation(context):
-    """Add gallery to navigation."""
+def add_form_to_navigation(context):
+    """Add form to navigation."""
     displayed_types = list(
         api.portal.get_registry_record(
             'plone.displayed_types'
         )
     )
-    displayed_types.append('gallery')
+    displayed_types.append('form')
     api.portal.set_registry_record(
         'plone.displayed_types', tuple(displayed_types)
     )
-    logger.info('Added gallery to navigation')
-
-
-def add_theme(context):
-    """Add css_resources."""
-    setup = api.portal.get_tool('portal_setup')
-    setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.theming')
-    logger.info('Added theme')
+    logger.info('Added form to navigation')

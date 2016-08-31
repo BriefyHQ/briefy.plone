@@ -10,21 +10,15 @@
         profile="briefy.plone:default">
 
       <gs:upgradeStep
-          title="Add Columns Block, Column Block and Gallery."
+          title="Register all new types: Form."
           description="."
           handler=".types_registration"
       />
 
       <gs:upgradeStep
-          title="Add Gallery as a type to be listed on navigation."
+          title="Add Form as a type to be listed on navigation."
           description="."
-          handler=".add_gallery_to_navigation"
-      />
-
-      <gs:upgradeStep
-          title="Add Theme."
-          description="."
-          handler=".add_theme"
+          handler=".add_form_to_navigation"
       />
 
   </gs:upgradeSteps>
