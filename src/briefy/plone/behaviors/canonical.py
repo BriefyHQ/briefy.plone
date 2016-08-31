@@ -50,7 +50,11 @@ class CanonicalURL(object):
                 context=self.context,
                 request=self.context.REQUEST
             )
-            value = context_view.canonical_object_url()
+            try:
+                value = context_view.canonical_object_url()
+            except AttributeError:
+                # After object creation we could have a "race condition here"
+                value = ''
         return value
 
     @canonical_url.setter
