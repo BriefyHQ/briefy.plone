@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="col_block_item" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Column block</property>
+ <property name="title" i18n:translate="">Column block item</property>
  <property name="description"
     i18n:translate="">A column with title, description and call to action.</property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
