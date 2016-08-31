@@ -2,5 +2,6 @@
 
   <!-- Upgrades -->
   <include package=".v20160825" />
+  <include package=".v20160831" />
 
 </configure>

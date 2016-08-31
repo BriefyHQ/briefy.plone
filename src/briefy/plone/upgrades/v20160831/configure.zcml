@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20160825"
+        destination="20160831"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Add Columns Block, Column Block and Gallery."
+          description="."
+          handler=".types_registration"
+      />
+
+      <gs:upgradeStep
+          title="Add Gallery as a type to be listed on navigation."
+          description="."
+          handler=".add_gallery_to_navigation"
+      />
+
+      <gs:upgradeStep
+          title="Add Theme."
+          description="."
+          handler=".add_theme"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>
