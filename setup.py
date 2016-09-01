@@ -5,7 +5,7 @@ from setuptools import setup
 
 import os
 
-version = '0.1.0'
+version = '1.0.0'
 
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
