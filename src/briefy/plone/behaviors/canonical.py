@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Canonical url behavior."""
 from briefy.plone import _
+from briefy.plone.config import BASE_URL
 from plone import api
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
@@ -45,6 +46,7 @@ class CanonicalURL(object):
         """Getter for canonical_url."""
         value = self.__annotations.get('canonical_url', None)
         if not value:
+            site_url = api.portal.get().absolute_url()
             context_view = api.content.get_view(
                 name='plone_context_state',
                 context=self.context,
@@ -55,6 +57,7 @@ class CanonicalURL(object):
             except AttributeError:
                 # After object creation we could have a "race condition here"
                 value = ''
+            value = value.replace(site_url, BASE_URL)
         return value
 
     @canonical_url.setter

@@ -56,7 +56,7 @@ class ICanonicalURLTest(unittest.TestCase):
         behavior = ICanonicalURL(doc)
         self.assertEqual(
             behavior.canonical_url,
-            'http://nohost/plone/doc-1'
+            'http://localhost:8080/doc-1'
         )
         behavior.canonical_url = u'https://briefy.co/'
         self.assertEqual(
