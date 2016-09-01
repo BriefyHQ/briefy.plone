@@ -1,20 +1,18 @@
 <?xml version="1.0"?>
-<object name="block_columns" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="block_page" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Row of columns</property>
+ <property name="title" i18n:translate="">Form</property>
  <property name="description"
-    i18n:translate="">A block displaying columns of contents.</property>
+    i18n:translate="">Form type content</property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">block_columns</property>
+ <property name="factory">form</property>
  <property
-    name="add_view_expr">string:${folder_url}/++add++block_columns</property>
+    name="add_view_expr">string:${folder_url}/++add++form</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
- <property name="global_allow">False</property>
+ <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-  <element value="col_block_item"/>
- </property>
+ <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
  <property name="default_view">view</property>
  <property name="view_methods">
@@ -22,16 +20,20 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">briefy.plone.content.block_columns.BlockColumns</property>
+ <property name="klass">briefy.plone.content.form.Form</property>
  <property name="behaviors">
   <element value="plone.app.content.interfaces.INameFromTitle"/>
   <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+  <element value="plone.app.contenttypes.behaviors.richtext.IRichText"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
   <element value="briefy.plone.behaviors.layout.ILayout"/>
+  <element value="briefy.plone.behaviors.call_to_action.ICallToAction"/>
+  <element value="briefy.plone.behaviors.canonical.ICanonicalURL"/>
+  <element value="briefy.plone.behaviors.metarobots.IMetaRobots"/>
  </property>
  <property name="schema"></property>
  <property name="model_source"/>
- <property name="model_file">briefy.plone.content.schema:block_columns.xml</property>
+ <property name="model_file">briefy.plone.content.schema:form.xml</property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="@@edit"/>

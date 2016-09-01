@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20160825"
+        destination="20160831"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Register all new types: Form."
+          description="."
+          handler=".types_registration"
+      />
+
+      <gs:upgradeStep
+          title="Add Form as a type to be listed on navigation."
+          description="."
+          handler=".add_form_to_navigation"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>

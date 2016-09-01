@@ -73,7 +73,7 @@ class TestSerialization(unittest.TestCase):
         # SEO
         self.assertEqual(
             data['canonical_url'],
-            'http://nohost/plone/en/home'
+            'http://localhost:8080/en/home'
         )
         self.assertEqual(data['robots'], 'index')
 

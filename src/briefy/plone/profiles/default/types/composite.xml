@@ -19,6 +19,7 @@
   <element value="block_checker"/>
   <element value="block_page"/>
   <element value="block_header"/>
+  <element value="form"/>
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">view</property>

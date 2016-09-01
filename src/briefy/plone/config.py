@@ -1,16 +1,27 @@
 # -*- coding: utf-8 -*-
 """Configuration and settings for the package."""
+from os import environ as env
 from Products.CMFPlone.interfaces import INonInstallable
 from Products.CMFQuickInstallerTool import interfaces as qi_interfaces
 from zope.interface import implementer
 
 import logging
 
+
 PROJECTNAME = 'briefy.plone'
 PROFILE_ID = 'briefy.plone:default'
 
 logger = logging.getLogger(PROJECTNAME)
 
+ENV = env.get('ENV', 'dev')
+
+_BASE_URLS = {
+    'dev': 'http://localhost:8080',
+    'stg': 'https://www.stg.briefy.co',
+    'live': 'https://briefy.co',
+}
+
+BASE_URL = _BASE_URLS.get(ENV, _BASE_URLS['dev'])
 
 BLACKLISTED = [
     '@@search',
