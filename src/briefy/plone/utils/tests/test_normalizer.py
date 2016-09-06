@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Test utils."""
+"""Test filename normalizer."""
 from briefy.plone import utils
 import unittest
 

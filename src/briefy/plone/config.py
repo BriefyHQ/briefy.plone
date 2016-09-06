@@ -56,6 +56,15 @@ SEARCH_BLACKLIST = (
     'TempFolder',
 )
 
+# Thumbor integration
+S3_BUCKET = env.get('S3_BUCKET', 'images.stg.briefy.co')
+S3_PATH = env.get('S3_PATH', 'source/cms/')
+S3_REGION = env.get('S3_REGION', 'us-east-1')
+
+THUMBOR_PATH = env.get('THUMBOR_PATH', 'cms/')
+THUMBOR_KEY = env.get('THUMBOR_PATH', 'dMXlEkjuSz3VoIn9THJOROfMPZa4FqSvDl3jXwN9')
+THUMBOR_BASE_URL = env.get('THUMBOR_BASE_URL', 'https://images.stg.briefy.co')
+
 
 @implementer(qi_interfaces.INonInstallable)
 class HiddenProducts(object):
