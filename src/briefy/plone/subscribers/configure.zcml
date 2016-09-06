@@ -35,4 +35,17 @@
         handler=".composite.remove_portlets"
      />
 
+    <!-- Image uploads to s3 -->
+    <subscriber
+        for="plone.dexterity.interfaces.IDexterityContent
+             zope.lifecycleevent.IObjectAddedEvent"
+        handler=".s3.dx_handler"
+    />
+
+    <subscriber
+        for="plone.dexterity.interfaces.IDexterityContent
+             zope.lifecycleevent.IObjectModifiedEvent"
+        handler=".s3.dx_handler"
+    />
+
 </configure>

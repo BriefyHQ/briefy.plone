@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Test ICanonicalURL behavior."""
+"""Test Serializer."""
 from briefy.plone.interfaces import IBriefyPloneJSONLayer
 from briefy.plone.testing import INTEGRATION_TESTING
 from plone import api

@@ -12,4 +12,7 @@
     <!-- Field Serializer -->
     <adapter factory=".field.ImageFieldSerializer" />
 
+    <!-- S3 Storage -->
+    <adapter factory=".storages.AlternateStorageLocation" />
+
 </configure>
