@@ -4,7 +4,6 @@ from briefy.plone import utils
 from briefy.plone.config import logger
 from briefy.plone.config import S3_BUCKET
 from briefy.plone.config import S3_PATH
-from persistent.mapping import PersistentMapping
 from plone import api
 from plone.dexterity.interfaces import IDexterityContent
 from zope.annotation.interfaces import IAnnotations
@@ -13,9 +12,6 @@ from zope.interface import implementer
 from zope.interface import Interface
 
 import boto3
-
-
-IMAGES_KEY = 'briefy.plone.storage'
 
 
 class IAlternateStorageLocation(Interface):
@@ -46,14 +42,10 @@ class AlternateStorageLocation(object):
         :type context: object
         """
         self.context = context
-        annotations = self.__annotations
-        annotations.setdefault(IMAGES_KEY, PersistentMapping())
 
     @property
     def __annotations(self):
         annotations = IAnnotations(self.context)
-        if IMAGES_KEY in annotations:
-            annotations = annotations[IMAGES_KEY]
         return annotations
 
     @property
