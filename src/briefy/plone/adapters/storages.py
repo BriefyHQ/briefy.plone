@@ -13,7 +13,6 @@ from zope.interface import implementer
 from zope.interface import Interface
 
 import boto3
-import StringIO
 
 
 IMAGES_KEY = 'briefy.plone.storage'
@@ -119,9 +118,6 @@ class S3Adapter(object):
         """
         status = True
         storage = self.storage
-        # Create a file like object
-        fh = StringIO.StringIO(data)
-        fh.seek(0)
         # Store the data on Amazon
         try:
             storage.put_object(Key=path, Body=data)
