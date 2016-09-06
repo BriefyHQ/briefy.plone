@@ -3,6 +3,7 @@
 from briefy.plone.config import S3_PATH
 from briefy.plone.config import THUMBOR_BASE_URL
 from briefy.plone.config import THUMBOR_KEY
+from briefy.plone.config import THUMBOR_CACHE_URL
 from briefy.plone.config import THUMBOR_PATH
 from libthumbor import CryptoURL
 
@@ -21,8 +22,9 @@ def _prepare_image_url(s3_path):
     return s3_path.replace(S3_PATH, THUMBOR_PATH)
 
 
-def generate_url(s3_path, width, height, smart=True):
+def generate_url(s3_path, width, height, smart=True, cache=False):
     """Generate a signed url."""
+    prefix = THUMBOR_CACHE_URL if cache else THUMBOR_BASE_URL
     image_url = _prepare_image_url(s3_path)
     encrypted_url = _crypto.generate(
         width=width,
@@ -31,5 +33,5 @@ def generate_url(s3_path, width, height, smart=True):
         image_url=image_url
     )
     return '{base_url}{encrypted_url}'.format(
-        base_url=THUMBOR_BASE_URL, encrypted_url=encrypted_url
+        base_url=prefix, encrypted_url=encrypted_url
     )
