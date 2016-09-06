@@ -153,7 +153,7 @@ class S3Adapter(object):
     def _store_field(self, fieldname, field):
         """Generate path on Amazon S3 given a fieldname and a filename.
 
-        :param fieldname: Name of the field containing the data to stored
+        :param fieldname: Name of the field containing the data to be stored
         :type fieldname: str
         :param field: Field to use
         :type field: object
@@ -176,7 +176,7 @@ class S3Adapter(object):
     def store_fields(self, fields):
         """Store given fields on Amazon S3.
 
-        :param fields: Name of the field containing the data to stored
+        :param fields: Name of the field containing the data to be stored
         :type fields: str
         """
         logger.info('Storing fields: {0}'.format(''.join([f[0] for f in fields])))
