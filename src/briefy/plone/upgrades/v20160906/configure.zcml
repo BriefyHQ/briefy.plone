@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20160831"
+        destination="20160906"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Put all images on S3."
+          description="."
+          handler=".images_s3"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>

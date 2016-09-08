@@ -5,7 +5,7 @@ from setuptools import setup
 
 import os
 
-version = '1.0.0'
+version = '1.1.0'
 
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
@@ -15,6 +15,7 @@ with open(os.path.join(here, 'HISTORY.rst')) as f:
 
 requires = [
     'boto3',
+    'libthumbor',
     'Plone',
     'plone.api',
     'plone.app.contenttypes',
