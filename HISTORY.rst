@@ -2,7 +2,7 @@
 History
 =======
 
-1.1.0 (Unreleases)
+1.1.0 (2016-09-08)
 ---------------------------
 
 * Add Thumbor support using S3. (ericof)
