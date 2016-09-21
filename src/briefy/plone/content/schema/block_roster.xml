@@ -1,0 +1,11 @@
+<model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="roster" type="z3c.relationfield.schema.RelationChoice">
+      <description/>
+      <title>Roster Folder</title>
+      <portal_type>
+        <element>roster</element>
+      </portal_type>
+    </field>
+  </schema>
+</model>
