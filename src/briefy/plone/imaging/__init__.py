@@ -12,7 +12,10 @@ from plone.restapi.imaging import get_scale_infos
 THUMBOR_IMAGE_SIZES = (
     (u'original', 0, 0),
     (u'jumbotron', 1400, 800),
-    (u'portrait', 320, 320)
+    (u'portrait', 320, 320),
+    (u'gallery-full', 1074, 716),
+    (u'gallery-thumb', 80, 80),
+    (u'gallery-mobile', 400, 266)
 )
 
 
