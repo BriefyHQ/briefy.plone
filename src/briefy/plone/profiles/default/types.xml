@@ -12,6 +12,7 @@
  <object name="block_columns" meta_type="Dexterity FTI"/>
  <object name="col_block_item" meta_type="Dexterity FTI"/>
  <object name="form" meta_type="Dexterity FTI"/>
+ <object name="block_roster" meta_type="Dexterity FTI"/>
 
  <!-- Gallery -->
  <object name="gallery" meta_type="Dexterity FTI"/>

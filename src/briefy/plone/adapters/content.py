@@ -2,6 +2,7 @@
 """JSON Serializer for Contents."""
 from briefy.plone.content.block_checker import IBlockChecker
 from briefy.plone.content.block_columns import IBlockColumns
+from briefy.plone.content.block_roster import IBlockRoster
 from briefy.plone.content.composite import ICompositePage
 from briefy.plone.content.gallery import IGallery
 from briefy.plone.content.roster import IRoster
@@ -98,3 +99,16 @@ class SerializeRosterToJson(SerializeFolderishToJson):
 @adapter(IGallery, IBriefyPloneJSONLayer)
 class SerializeGalleryToJson(SerializeFolderishToJson):
     """Serialize a Gallery to JSON."""
+
+
+@implementer(ISerializeToJson)
+@adapter(IBlockRoster, IBriefyPloneJSONLayer)
+class SerializeBlockRosterToJson(SerializeFolderishToJson):
+    """Serialize a Block Roster to JSON."""
+
+    def _getObjects(self):
+        context = self.context
+        roster = context.roster
+        if roster:
+            context = roster.to_object
+            return context.objectValues()

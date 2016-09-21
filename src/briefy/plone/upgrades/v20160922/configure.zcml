@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20160906"
+        destination="20160922"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Register all new types: RosterBlock."
+          description="."
+          handler=".types_registration"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>
