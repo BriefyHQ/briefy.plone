@@ -8,6 +8,7 @@
     <adapter factory=".content.SerializeCompositeToJson" />
     <adapter factory=".content.SerializeRosterToJson" />
     <adapter factory=".content.SerializeGalleryToJson" />
+    <adapter factory=".content.SerializeBlockRosterToJson" />
 
     <!-- Field Serializer -->
     <adapter factory=".field.ImageFieldSerializer" />

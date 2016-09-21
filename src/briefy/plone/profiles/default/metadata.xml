@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>20160906</version>
+  <version>20160922</version>
   <dependencies>
     <dependency>profile-plonetheme.barceloneta:default</dependency>
     <dependency>profile-plone.session:default</dependency>
