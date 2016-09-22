@@ -10,6 +10,8 @@ History
 * SITE-21: Add image to column block. (ericof)
 * SITE-6: Allow adding Roster contents to CompositePage. (ericof)
 * SITE-4: Add Breezy Block. (ericof)
+* Fix canonical_url behavior -- removing language path. (ericof)
+* Add social metadata to serialization. (ericof)
 
 1.1.0 (2016-09-08)
 ------------------
