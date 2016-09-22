@@ -1,28 +1,18 @@
 <?xml version="1.0"?>
-<object name="composite" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="block_breezy" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Composite Page</property>
+ <property name="title" i18n:translate="">Breezy Block</property>
  <property name="description"
-    i18n:translate="">A page that is composed by blocks</property>
+    i18n:translate="">A block that displays Breezy job postings.</property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">composite</property>
+ <property name="factory">block_breezy</property>
  <property
-    name="add_view_expr">string:${folder_url}/++add++composite</property>
+    name="add_view_expr">string:${folder_url}/++add++block_breezy</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
- <property name="global_allow">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-  <element value="block_columns"/>
-  <element value="block_jumbotron"/>
-  <element value="block_jumbotron_video"/>
-  <element value="block_checker"/>
-  <element value="block_page"/>
-  <element value="block_header"/>
-  <element value="form"/>
-  <element value="block_roster"/>
-  <element value="block_breezy"/>
- </property>
+ <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
  <property name="default_view">view</property>
  <property name="view_methods">
@@ -30,22 +20,17 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">briefy.plone.content.composite.CompositePage</property>
+ <property name="klass">briefy.plone.content.block.Block</property>
  <property name="behaviors">
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.dexterity.behaviors.id.IShortName"/>
   <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-  <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
   <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
-  <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
-  <element value="briefy.plone.behaviors.canonical.ICanonicalURL"/>
-  <element value="briefy.plone.behaviors.metarobots.IMetaRobots"/>
+  <element value="briefy.plone.behaviors.layout.ILayout"/>
+  <element value="briefy.plone.behaviors.call_to_action.ICallToAction"/>
  </property>
  <property name="schema"></property>
  <property name="model_source"/>
- <property name="model_file">briefy.plone.content.schema:composite.xml</property>
+ <property name="model_file">briefy.plone.content.schema:block_breezy.xml</property>
  <property name="schema_policy">dexterity</property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="@@edit"/>
