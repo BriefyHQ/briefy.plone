@@ -10,7 +10,7 @@
         profile="briefy.plone:default">
 
       <gs:upgradeStep
-          title="Register all new types: RosterBlock, BreezyBlock."
+          title="Register all new types: ImageBlock, RosterBlock, BreezyBlock."
           description="."
           handler=".types_registration"
       />

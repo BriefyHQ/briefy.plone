@@ -8,6 +8,7 @@
  <object name="block_checker" meta_type="Dexterity FTI"/>
  <object name="row_block_checker" meta_type="Dexterity FTI"/>
  <object name="block_page" meta_type="Dexterity FTI"/>
+ <object name="block_image" meta_type="Dexterity FTI"/>
  <object name="block_header" meta_type="Dexterity FTI"/>
  <object name="block_columns" meta_type="Dexterity FTI"/>
  <object name="col_block_item" meta_type="Dexterity FTI"/>

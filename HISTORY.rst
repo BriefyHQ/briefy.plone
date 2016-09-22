@@ -5,6 +5,7 @@ History
 1.2.0 (Unreleased)
 ------------------
 
+* SITE-24: Add new Image Block. (ericof)
 * SITE-23: Add new image sizes for gallery. (ericof)
 * SITE-21: Add image to column block. (ericof)
 * SITE-6: Allow adding Roster contents to CompositePage. (ericof)
