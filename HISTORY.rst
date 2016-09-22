@@ -7,7 +7,9 @@ History
 
 * SITE-24: Add new Image Block. (ericof)
 * SITE-23: Add new image sizes for gallery. (ericof)
+* SITE-21: Add image to column block. (ericof)
 * SITE-6: Allow adding Roster contents to CompositePage. (ericof)
+* SITE-4: Add Breezy Block. (ericof)
 
 1.1.0 (2016-09-08)
 ------------------
