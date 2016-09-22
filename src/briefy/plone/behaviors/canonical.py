@@ -46,7 +46,8 @@ class CanonicalURL(object):
         """Getter for canonical_url."""
         value = self.__annotations.get('canonical_url', None)
         if not value:
-            site_url = api.portal.get().absolute_url()
+            navigation_root = api.portal.get_navigation_root(self.context)
+            site_url = navigation_root.absolute_url()
             context_view = api.content.get_view(
                 name='plone_context_state',
                 context=self.context,
