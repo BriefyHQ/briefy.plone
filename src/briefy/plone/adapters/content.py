@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """JSON Serializer for Contents."""
+from briefy.plone.adapters.social import SocialMetadata
 from briefy.plone.content.block_checker import IBlockChecker
 from briefy.plone.content.block_columns import IBlockColumns
 from briefy.plone.content.block_roster import IBlockRoster
@@ -68,6 +69,8 @@ class SerializeFolderishToJson(SerializeToJson):
             for obj in batch
         ]
         result['breadcrumbs'] = breadcrumbs
+        result['social_metadata'] = SocialMetadata(self.context)()
+        result['creators'] = 'Briefy Team'  # HACK
         return result
 
 

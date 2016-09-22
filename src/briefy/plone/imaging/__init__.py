@@ -15,7 +15,8 @@ THUMBOR_IMAGE_SIZES = (
     (u'portrait', 320, 320),
     (u'gallery-full', 1074, 716),
     (u'gallery-thumb', 80, 80),
-    (u'gallery-mobile', 400, 266)
+    (u'gallery-mobile', 400, 266),
+    (u'social-full', 1200, 630),
 )
 
 
@@ -37,7 +38,9 @@ def get_scales(context, field, width, height, cache=False):
     """Return a dictionary of available scales for an image field."""
     scales = {}
 
-    field_name = field.__name__
+    field_name = field
+    if not isinstance(field_name, str):
+        field_name = field.__name__
     alternate_storage = IAlternateStorageLocation(context)
 
     s3_path = alternate_storage.get_field(field_name) if alternate_storage else ''
