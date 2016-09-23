@@ -22,9 +22,10 @@ class SocialMetadata(object):
         return locales.get(language)
 
     def _get_image_url(self, context):
-        width, height = context.image.getImageSize()
-        scales = get_scales(context, 'image', width, height)
-        return scales.get('social-full', scales.get('large'))
+        if context.image:
+            width, height = context.image.getImageSize()
+            scales = get_scales(context, 'image', width, height)
+            return scales.get('social-full', scales.get('large'))
 
     def _get_image(self):
         context = self.context
