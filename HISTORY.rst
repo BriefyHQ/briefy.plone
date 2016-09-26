@@ -2,7 +2,7 @@
 History
 =======
 
-1.2.0 (Unreleased)
+1.2.0 (2016-09-26)
 ------------------
 
 * SITE-24: Add new Image Block. (ericof)
