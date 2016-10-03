@@ -3,10 +3,10 @@ History
 =======
 
 
-1.2.1 (Unreleased)
+1.2.1 (2016-10-03)
 ------------------
 
-* TODO
+* Add S3 configuration to user plone. (ericof)
 
 
 1.2.0 (2016-09-26)
