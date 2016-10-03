@@ -11,7 +11,7 @@ RUN chown -R plone:plone /plone
 
 USER plone
 
-RUN mkdir /home/plone/.aws && \
-    mv aws_config /home/plone/.aws/config
+RUN mkdir -p /home/plone/.aws
+COPY ./aws_config /home/plone/.aws/config
 
 RUN bin/buildout -Nc docker.cfg
