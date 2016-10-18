@@ -2,10 +2,10 @@
 History
 =======
 
-1.2.2 (Unreleased)
+1.3.0 (Unreleased)
 ------------------
 
-* TODO
+* SITE-33: Add nuber of columns to block_columns. (ericof)
 
 1.2.1 (2016-10-03)
 ------------------
