@@ -115,3 +115,16 @@ class SerializeBlockRosterToJson(SerializeFolderishToJson):
         if roster:
             context = roster.to_object
             return context.objectValues()
+
+
+@implementer(ISerializeToJson)
+@adapter(IBlockRoster, IBriefyPloneJSONLayer)
+class SerializeBlockGalleryToJson(SerializeFolderishToJson):
+    """Serialize a Block Gallery to JSON."""
+
+    def _getObjects(self):
+        context = self.context
+        gallery = context.gallery
+        if gallery:
+            context = gallery.to_object
+            return context.objectValues()

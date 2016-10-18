@@ -5,7 +5,8 @@ History
 1.3.0 (Unreleased)
 ------------------
 
-* SITE-33: Add nuber of columns to block_columns. (ericof)
+* SITE-33: Add number of columns to block_columns. (ericof)
+* SITE-32: Add new Gallery Block. (ericof)
 
 1.2.1 (2016-10-03)
 ------------------
