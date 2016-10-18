@@ -109,3 +109,51 @@ class HiddenProfiles(object):
             'Products.ATContentTypes:default',
             'Products.CMFPlacefulWorkflow:base',
         ]
+
+
+DEFAULT_MENU_HEADER = """[
+    {"path": "/about", "title": "About", "internal": true},
+    {"path": "/creatives", "title": "Creatives", "internal": true},
+    {"path": "/business-solutions", "title": "Business Solutions", "internal": true}
+]
+"""
+
+
+DEFAULT_MENU_LOGIN = """[
+    {"path": "https://business.briefy.co", "title": "Business", "internal": false},
+    {"path": "https://professionals.briefy.co", "title": "Photographers", "internal": false}
+]
+"""
+
+
+DEFAULT_MENU_FOOTER = """[
+    {
+      "title": "Discover",
+      "items": [
+        {"path": "/business-solutions", "title": "Business solutions", "internal": true},
+        {"path": "/business-solutions/quote", "title": "Get a quote", "internal": true},
+        {"path": "/business-solutions/gallery", "title": "Sample Work", "internal": true},
+        {"path": "/creatives", "title": "Creatives", "internal": true}
+      ]
+    },
+    {
+      "title": "Company",
+      "items": [
+        {"path": "/about", "title": "About", "internal": true},
+        {"path": "/careers", "title": "Careers", "internal": true},
+        {"path": "https://medium.com/@briefytalks", "title": "Blog", "internal": false}
+      ]
+    },
+    {
+      "title": "Important",
+      "items": [
+        {"path": "/imprint", "title": "Imprint", "internal": true},
+        {"path": "/contact", "title": "Contact", "internal": true}
+      ]
+    },
+    {
+      "title": "",
+      "items": []
+    }
+]
+"""
