@@ -3,6 +3,7 @@
 from briefy.plone.adapters.social import SocialMetadata
 from briefy.plone.content.block_checker import IBlockChecker
 from briefy.plone.content.block_columns import IBlockColumns
+from briefy.plone.content.block_gallery import IBlockGallery
 from briefy.plone.content.block_roster import IBlockRoster
 from briefy.plone.content.composite import ICompositePage
 from briefy.plone.content.gallery import IGallery
@@ -118,7 +119,7 @@ class SerializeBlockRosterToJson(SerializeFolderishToJson):
 
 
 @implementer(ISerializeToJson)
-@adapter(IBlockRoster, IBriefyPloneJSONLayer)
+@adapter(IBlockGallery, IBriefyPloneJSONLayer)
 class SerializeBlockGalleryToJson(SerializeFolderishToJson):
     """Serialize a Block Gallery to JSON."""
 
