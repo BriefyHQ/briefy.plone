@@ -1,3 +1,9 @@
 <model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
-  <schema/>
+  <schema>
+      <field name="sub_description" type="zope.schema.TextLine">
+        <description>Text that will appear under the description.</description>
+        <required>False</required>
+        <title>Sub description</title>
+      </field>
+  </schema>
 </model>
