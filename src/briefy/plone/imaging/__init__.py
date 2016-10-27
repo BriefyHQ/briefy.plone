@@ -14,6 +14,7 @@ THUMBOR_IMAGE_SIZES = (
     (u'jumbotron', 1400, 800),
     (u'portrait', 320, 320),
     (u'gallery-full', 1074, 716),
+    (u'gallery-preview', 350, 240),
     (u'gallery-thumb', 80, 80),
     (u'gallery-mobile', 400, 266),
     (u'social-full', 1200, 630),
