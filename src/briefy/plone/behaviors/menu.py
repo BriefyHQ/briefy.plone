@@ -82,7 +82,7 @@ class Menu(object):
         """Format a JSON value."""
         try:
             value_obj = json.loads(value)
-            value = json.dumps(value_obj, ident=2, sort_keys=True)
+            value = json.dumps(value_obj, indent=2, sort_keys=True)
         except ValueError:
             raise ValueError('Invalid value for menu header')
         return value

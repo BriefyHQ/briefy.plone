@@ -16,7 +16,7 @@ class IMenuTest(unittest.TestCase):
     """Test case for IMenu behavior."""
 
     layer = INTEGRATION_TESTING
-    behavior_name = 'briefy.plone.behaviors.canonical.IMenu'
+    behavior_name = 'briefy.plone.behaviors.menu.IMenu'
 
     def setUp(self):
         """Custom shared utility setup for tests."""
