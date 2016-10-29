@@ -36,4 +36,11 @@
         marker=".interfaces.ISEOBehavior"
         />
 
+    <plone:behavior
+        title="Menu: Menu behaviour for site roots"
+        description="Implement menu behavior for site root."
+        provides=".menu.IMenu"
+        factory="briefy.plone.behaviors.menu.Menu"
+        />
+
 </configure>

@@ -2,6 +2,13 @@
 History
 =======
 
+1.3.0 (2016-10-28)
+------------------
+
+* SITE-33: Add number of columns to block_columns. (ericof)
+* SITE-32: Add new Gallery Block. (ericof)
+* SITE-34: Add menu configuration to the CMS. (ericof)
+* Add new image size. (walrus)
 
 1.2.1 (2016-10-03)
 ------------------

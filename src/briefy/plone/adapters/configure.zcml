@@ -9,6 +9,7 @@
     <adapter factory=".content.SerializeRosterToJson" />
     <adapter factory=".content.SerializeGalleryToJson" />
     <adapter factory=".content.SerializeBlockRosterToJson" />
+    <adapter factory=".content.SerializeBlockGalleryToJson" />
 
     <!-- Field Serializer -->
     <adapter factory=".field.ImageFieldSerializer" />

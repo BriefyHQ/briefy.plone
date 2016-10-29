@@ -1,17 +1,11 @@
 <model xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns="http://namespaces.plone.org/supermodel/schema">
   <schema>
-    <field name="number_of_columns" type="zope.schema.Choice">
-      <description/>
-      <required>False</required>
-      <title>Number of Columns</title>
-      <values>
-        <element>1</element>
-        <element>2</element>
-        <element>3</element>
-        <element>4</element>
-        <element>6</element>
-        <element>12</element>
-      </values>
+    <field name="gallery" type="z3c.relationfield.schema.RelationChoice">
+      <description>Select an existing gallery.</description>
+      <title>Gallery</title>
+      <portal_type>
+        <element>gallery</element>
+      </portal_type>
     </field>
   </schema>
 </model>
