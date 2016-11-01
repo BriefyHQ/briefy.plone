@@ -2,6 +2,11 @@
 History
 =======
 
+1.3.1 (2016-11-01)
+------------------
+
+* SITE-38: Change description field of row block checker to be rich text, not text. (ericof)
+
 1.3.0 (2016-10-28)
 ------------------
 

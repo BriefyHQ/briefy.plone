@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20161018"
+        destination="20161101"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Update types registration."
+          description="."
+          handler=".types_registration"
+      />
+
+      <gs:upgradeStep
+          title="Update text field of Row Block Checker with content from description field."
+          description="."
+          handler=".data_migration"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>
