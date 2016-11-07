@@ -32,9 +32,6 @@ deploy:
   username: ci
   password:
     secure: Aew2DsIDeHnoedumfhr1TLZ62xM3c8GRABZjJARXuPY6Yi0ZUQ6WOE37SYI50LnQp6A6L90Vho0aoemRmL9Fv342oDv2ne30H+npEdfHAeiC6WmXcXx4h28cVFFyyE/NfpLAE5F3uHXX8b5AMvu2x5mGU70B/hU8pOb56/FBeVPcZkAEumSwncvkz5rjFGqMRmOHYuWg57mKZC7eeNTsL1yV1tgzDB+X8zJNW7a/qunHp75IbcjTBQOOUwyZlm5/g+x0/rCXukh1v8Jds8Ve5Q/+aBYCKELSIZ3rG6viZA7VNKsliHgLkAHuFEfBlw1Lmb3MF5bZIcRfCEYIBMLPthbtCRgDJBv+R/WM1ALBzR3oqyGNRTKqfC05ZhTwHC8vJmATvrNXSOENJLKJmckreyCajRx+Tqu5Vep/7ROPObpR8K6WGwKtARGLvdQOPmRdefCN7x820AeIppH133zJYbX0Ea0DmhCu6fItLH5ib4fdeUKY26lpyTEDtX+GtZ+ymScDjf25CDkUtgyRzwsT8sZ2IXMjJAcinr7rQtGLNmgbobqWGAfXKLN7rK1hkhFCAwW77odanfcblLn46ciHKHizS26XNk0dA6YTkMXWIAysYj7RnyjDvh0OpkclashpMIjYmEHqZb8Mm8r7jdKIvIf2j3Yt26JxifEG6hKtZQQ=
-  edge:
-    source: mattk42/dpl
-    branch: deis-v2-exit-status
   on:
     repo: BriefyHQ/briefy.plone
     branch: develop
