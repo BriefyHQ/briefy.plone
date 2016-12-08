@@ -32,17 +32,18 @@ class SocialMetadata(object):
         context = self.context
         url = ''
         tmp_url = ''
-        if ILeadImage.providedBy(context):
-            url = self._get_image_url(context)
-        else:
-            for child in context.objectValues():
-                tmp_url = self._get_image_url(child) if ILeadImage.providedBy(child) else ''
-                # We ignore gradient images if possible
-                if tmp_url and 'gradient' in tmp_url.lower():
-                    continue
-                url = tmp_url
-                if url:
-                    break
+        children = context.objectValues()
+        elements = [context, ]
+        if children:
+            elements.extend(children)
+        for item in elements:
+            tmp_url = self._get_image_url(item) if ILeadImage.providedBy(item) else ''
+            # We ignore gradient images if possible
+            if tmp_url and 'gradient' in tmp_url.lower():
+                continue
+            url = tmp_url
+            if url:
+                break
         url = url if url else tmp_url
         return url
 
