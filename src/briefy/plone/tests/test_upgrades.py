@@ -4,7 +4,6 @@ from briefy.plone.config import PROJECTNAME
 from briefy.plone.testing import INTEGRATION_TESTING
 from Products.GenericSetup.upgrade import listUpgradeSteps
 
-
 import unittest
 
 
