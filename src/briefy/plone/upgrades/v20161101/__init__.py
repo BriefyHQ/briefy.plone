@@ -7,6 +7,7 @@ from plone.app.textfield.value import RichTextValue
 
 import logging
 
+
 logger = logging.getLogger(PROJECTNAME)
 
 
