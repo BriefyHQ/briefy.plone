@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Social Metadata adapter."""
 from briefy.plone.imaging import get_scales
+from briefy.plone.behaviors.canonical import ICanonicalURL
 from plone.app.contenttypes.behaviors.leadimage import ILeadImage
 
 
@@ -30,13 +31,19 @@ class SocialMetadata(object):
     def _get_image(self):
         context = self.context
         url = ''
+        tmp_url = ''
         if ILeadImage.providedBy(context):
             url = self._get_image_url(context)
         else:
             for child in context.objectValues():
-                url = self._get_image_url(child) if ILeadImage.providedBy(child) else ''
+                tmp_url = self._get_image_url(child) if ILeadImage.providedBy(child) else ''
+                # We ignore gradient images if possible
+                if tmp_url and 'gradient' in tmp_url.lower():
+                    continue
+                url = tmp_url
                 if url:
                     break
+        url = url if url else tmp_url
         return url
 
     def __call__(self):
@@ -46,7 +53,12 @@ class SocialMetadata(object):
         names = []
         created_at = context.Date()
         updated_at = context.ModificationDate()
+        canonical = ICanonicalURL(context, None)
+        url = context.absolute_url()
+        if canonical:
+            url = canonical.canonical_url
         base = {
+            'url': url,
             'title': context.title,
             'description': context.description,
             'image': self._get_image(),
@@ -56,9 +68,9 @@ class SocialMetadata(object):
             'locale': self._get_locale(),
         }
         # Open Graph
+        properties.append(('og:url', base['url']))
         properties.append(('og:title', base['title']))
         properties.append(('og:description', base['description']))
-        properties.append(('og:image', base['image']))
         properties.append(('og:locale', base['locale']))
         if context.portal_type == 'News Item':
             # http://ogp.me/#type_article
@@ -75,7 +87,9 @@ class SocialMetadata(object):
         names.append(('twitter:card', 'summary_large_image'))
         names.append(('twitter:title', base['title']))
         names.append(('twitter:description', base['description']))
-        names.append(('twitter:image', base['image']))
+        if base['image']:
+            properties.append(('og:image', base['image']))
+            names.append(('twitter:image', base['image']))
         metadata = (
             [{'name': k, 'content': v} for k, v in names] +
             [{'property': k, 'content': v} for k, v in properties]

@@ -6,6 +6,7 @@ History
 ------------------
 
 * SITE-47: Add PloneHotfix20161129. (ericof)
+* SITE-46: Add URL to OpenGraph og:url. (ericof)
 
 
 1.3.1 (2016-11-01)
