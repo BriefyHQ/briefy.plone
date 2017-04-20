@@ -10,7 +10,6 @@ from zope.component import getMultiAdapter
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
 
-
 import unittest2 as unittest
 
 

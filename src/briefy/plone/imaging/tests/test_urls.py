@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Test url generation."""
 from briefy.plone.imaging import urls
+
 import unittest
 
 
