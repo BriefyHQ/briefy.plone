@@ -133,7 +133,8 @@ DEFAULT_MENU_FOOTER = """[
         {"path": "/business-solutions", "title": "Business solutions", "internal": true},
         {"path": "/business-solutions/quote", "title": "Get a quote", "internal": true},
         {"path": "/business-solutions/gallery", "title": "Sample Work", "internal": true},
-        {"path": "/creatives", "title": "Creatives", "internal": true}
+        {"path": "/creatives", "title": "Creatives", "internal": true},
+        {"path": "https://plone.org", "title": "Plone", "internal": false}
       ]
     },
     {
