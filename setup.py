@@ -21,7 +21,7 @@ requires = [
     'plone.app.contenttypes',
     'plone.app.upgrade',
     'plone.rest',
-    'plone.restapi >=1.0a2',
+    'plone.restapi',
     'requests',
     'setuptools',
     'wheel',

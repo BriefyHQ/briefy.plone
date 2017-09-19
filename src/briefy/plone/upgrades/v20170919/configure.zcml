@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:gs="http://namespaces.zope.org/genericsetup">
+
+  <!-- Upgrade Steps -->
+  <gs:upgradeSteps
+        source="20161101"
+        destination="20170919"
+        profile="briefy.plone:default">
+
+      <gs:upgradeStep
+          title="Upgrade plone.restapi."
+          description="."
+          handler=".upgrade_plone_restapi"
+      />
+
+  </gs:upgradeSteps>
+
+
+</configure>

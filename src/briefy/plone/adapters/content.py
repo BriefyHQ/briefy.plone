@@ -27,9 +27,9 @@ import json
 class SerializeToJson(BaseSerializer):
     """Serialize Briefy CMS objects to JSON."""
 
-    def __call__(self):
+    def __call__(self, version=None):
         """Execute the serialization."""
-        result = super(SerializeToJson, self).__call__()
+        result = super(SerializeToJson, self).__call__(version=version)
         # Remove parent and review_state keys
         keys = ('parent', 'review_state')
         for key in keys:
@@ -83,9 +83,9 @@ class SerializeFolderishToJson(SerializeToJson):
             }
         return result
 
-    def __call__(self):
+    def __call__(self, version=None):
         """Execute the serialization."""
-        folder_metadata = super(SerializeFolderishToJson, self).__call__()
+        folder_metadata = super(SerializeFolderishToJson, self).__call__(version=version)
         breadcrumbs = self.get_breadcrumbs()
 
         batch = self._getObjects()

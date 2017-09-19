@@ -22,7 +22,7 @@ class UpgradesTestCase(unittest.TestCase):
         """Test latest version of profile."""
         self.assertEqual(
             self.setup.getLastVersionForProfile(self.profile)[0],
-            u'20161101'
+            u'20170919'
         )
 
     def _match(self, item, source, dest):
@@ -63,4 +63,10 @@ class UpgradesTestCase(unittest.TestCase):
         """Test upgrade step 20161101 is available."""
         steps = listUpgradeSteps(self.setup, self.profile, '20161018')
         steps = [s for s in steps if self._match(s[0], '20161018', '20161101')]
+        self.assertEqual(len(steps), 1)
+
+    def test_20170919_available(self):
+        """Test upgrade step 20170919 is available."""
+        steps = listUpgradeSteps(self.setup, self.profile, '20161101')
+        steps = [s for s in steps if self._match(s[0], '20161101', '20170919')]
         self.assertEqual(len(steps), 1)
