@@ -44,4 +44,3 @@ class SitemapJSONView(SiteMapView):
     def get_response_body(self):
         """Return a JSON body for this content."""
         return json.dumps(self.get_all_entries())
-
