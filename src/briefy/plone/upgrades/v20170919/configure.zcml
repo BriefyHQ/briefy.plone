@@ -15,6 +15,12 @@
           handler=".upgrade_plone_restapi"
       />
 
+      <gs:upgradeStep
+          title="Remove blocks from search -- and sitemap."
+          description="."
+          handler=".remove_blocks_from_search"
+      />
+
   </gs:upgradeSteps>
 
 
