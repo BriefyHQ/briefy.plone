@@ -18,6 +18,15 @@
       permission="zope2.View"
       />
 
+    <!-- Sitemap -->
+    <browser:page
+        for="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+        name="sitemap.json"
+        class=".sitemap.SitemapJSONView"
+        permission="zope2.View"
+        layer="briefy.plone.interfaces.IBriefyPloneJSONLayer"
+    />
+
 
   <z3c:widgetTemplate
       mode="display"

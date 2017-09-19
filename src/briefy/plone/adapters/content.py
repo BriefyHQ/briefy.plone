@@ -98,12 +98,12 @@ class SerializeFolderishToJson(SerializeToJson):
         result['breadcrumbs'] = breadcrumbs
         result['social_metadata'] = SocialMetadata(self.context)()
         result['creators'] = 'Briefy Team'  # HACK
-        menu = self.get_menu()
-        if menu:
-            keys = [k for k in result.keys() if k.startswith('menu')]
-            for key in keys:
-                del(result[key])
-            result.update(menu)
+        # menu = self.get_menu()
+        # if menu:
+        #     keys = [k for k in result.keys() if k.startswith('menu')]
+        #     for key in keys:
+        #         del(result[key])
+        #     result.update(menu)
         return result
 
 
