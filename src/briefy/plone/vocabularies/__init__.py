@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """Vocabularies used by CMS."""
-
 from zope.schema.vocabulary import SimpleVocabulary
 
 
