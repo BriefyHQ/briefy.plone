@@ -22,11 +22,12 @@ script:
 - bin/test
 after_success:
 - make docs
+- git fetch --unshallow
 notifications:
   slack: briefy:qxjOPwcrGEtVx3aCQBr812t9
 deploy:
   provider: deis
-  cli_version: v2.2.0
+  cli_version: v2.4.0
   controller: https://deis.stg.briefy.co
   app: briefy-plone
   username: ci
