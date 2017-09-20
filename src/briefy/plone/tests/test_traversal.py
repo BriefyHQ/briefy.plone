@@ -60,6 +60,7 @@ class TraversalTestCase(unittest.TestCase):
         import json
         page = self.page
         browser = self.browser
+        browser.handleErrors = False
         browser.addHeader('Accept', 'application/json')
         browser.open('{0}'.format(page.absolute_url()))
         self.assertEqual(browser.headers['status'], '200 Ok')

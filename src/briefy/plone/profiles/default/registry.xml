@@ -95,5 +95,25 @@
     <record name="plone.use_subdomain_negotiation" interface="plone.app.multilingual.interfaces.IMultiLanguageExtraOptionsSchema" field="use_subdomain_negotiation">
         <value>False</value>
     </record>
-
+    <record name="plone.types_not_searched" interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema" field="types_not_searched">
+      <value>
+        <element>block_breezy</element>
+        <element>block_checker</element>
+        <element>block_columns</element>
+        <element>block_gallery</element>
+        <element>block_header</element>
+        <element>block_image</element>
+        <element>block_jumbotron</element>
+        <element>block_jumbotron_video</element>
+        <element>block_page</element>
+        <element>block_roster</element>
+        <element>col_block_item</element>
+        <element>Discussion Item</element>
+        <element>Image</element>
+        <element>Plone Site</element>
+        <element>row_block_checker</element>
+        <element>team_member</element>
+        <element>TempFolder</element>
+      </value>
+    </record>
 </registry>

@@ -5,7 +5,7 @@ from setuptools import setup
 
 import os
 
-version = '1.3.1'
+version = '1.3.3'
 
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
@@ -21,7 +21,7 @@ requires = [
     'plone.app.contenttypes',
     'plone.app.upgrade',
     'plone.rest',
-    'plone.restapi >=1.0a2',
+    'plone.restapi>=1.0a20',
     'requests',
     'setuptools',
     'wheel',

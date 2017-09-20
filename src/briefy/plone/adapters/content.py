@@ -27,9 +27,9 @@ import json
 class SerializeToJson(BaseSerializer):
     """Serialize Briefy CMS objects to JSON."""
 
-    def __call__(self):
+    def __call__(self, version=None):
         """Execute the serialization."""
-        result = super(SerializeToJson, self).__call__()
+        result = super(SerializeToJson, self).__call__(version=version)
         # Remove parent and review_state keys
         keys = ('parent', 'review_state')
         for key in keys:
@@ -83,9 +83,9 @@ class SerializeFolderishToJson(SerializeToJson):
             }
         return result
 
-    def __call__(self):
+    def __call__(self, version=None):
         """Execute the serialization."""
-        folder_metadata = super(SerializeFolderishToJson, self).__call__()
+        folder_metadata = super(SerializeFolderishToJson, self).__call__(version=version)
         breadcrumbs = self.get_breadcrumbs()
 
         batch = self._getObjects()
@@ -98,12 +98,12 @@ class SerializeFolderishToJson(SerializeToJson):
         result['breadcrumbs'] = breadcrumbs
         result['social_metadata'] = SocialMetadata(self.context)()
         result['creators'] = 'Briefy Team'  # HACK
-        menu = self.get_menu()
-        if menu:
-            keys = [k for k in result.keys() if k.startswith('menu')]
-            for key in keys:
-                del(result[key])
-            result.update(menu)
+        # menu = self.get_menu()
+        # if menu:
+        #     keys = [k for k in result.keys() if k.startswith('menu')]
+        #     for key in keys:
+        #         del(result[key])
+        #     result.update(menu)
         return result
 
 

@@ -2,6 +2,12 @@
 History
 =======
 
+1.3.3 (2017-09-20)
+------------------
+
+* Add sitemap endpoint (ericof).
+* Remove menu information from payload (ericof).
+
 1.3.2 (2016-12-08)
 ------------------
 

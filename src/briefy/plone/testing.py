@@ -46,8 +46,11 @@ class Fixture(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):  # noqa
         """Setup the Plone site."""
+        self.applyProfile(portal, 'plone.restapi:default')
         self.applyProfile(portal, 'plone.app.contenttypes:default')
         self.applyProfile(portal, 'briefy.plone:default')
+        wftool = portal.portal_workflow
+        wftool.setDefaultChain('simple_publication_workflow')
 
 
 FIXTURE = Fixture()
