@@ -62,7 +62,7 @@ start_containers: stop_containers ## stop, remove and recreate docker containers
 	# s3
 	docker run -d -p 5000:5000 --name s3 briefy/aws-test:latest s3
 	# mysql
-	docker run -d -p 3106:3106 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cms --name briefy-plone-test mysql:5.7
+	docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cms --name briefy-plone-test mysql:5.7
 	sleep 5
 
 test: lint ## run tests quickly with the default Python
