@@ -13,9 +13,19 @@
   <browser:page
       for="briefy.plone.content.interfaces.IBriefyContent"
       name="view"
-      class="plone.dexterity.browser.view.DefaultView"
+      class=".container.BriefyView"
       template="container.pt"
       permission="zope2.View"
+      layer="briefy.plone.interfaces.IBriefyPloneLayer"
+      />
+
+  <browser:page
+      for="plone.dexterity.interfaces.IDexterityContainer"
+      name="listing_view"
+      class=".container.BriefyView"
+      template="container.pt"
+      permission="zope2.View"
+      layer="briefy.plone.interfaces.IBriefyPloneLayer"
       />
 
     <!-- Sitemap -->

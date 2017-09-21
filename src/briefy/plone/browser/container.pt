@@ -26,9 +26,33 @@
 
   <fieldset id="folder-listing">
       <legend i18n:translate="" i18n:domain="plone">Contents</legend>
-      <tal:block define="view nocall:context/folder_tabular_view; listing_macro view/macros/listing">
-          <metal:use_macro use-macro="listing_macro" />
-      </tal:block>
+      <div tal:define="content view/contents">
+        <table class="listing">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Content Type</th>
+              <th>Review State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr tal:repeat="item content">
+              <td>
+                <a href="${item/getURL}">
+                  <span tal:condition="item/Title" tal:content="item/Title">Title</span>
+                  <span tal:condition="not:item/Title" tal:content="item/id">Id</span>
+                </a>
+              </td>
+              <td>
+                <span tal:content="item/Type">Title</span>
+              </td>
+              <td>
+                <span tal:content="item/review_state">Private</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </fieldset>
 
 </metal:content-core>

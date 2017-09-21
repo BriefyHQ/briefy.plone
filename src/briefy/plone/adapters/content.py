@@ -22,6 +22,17 @@ from zope.interface import implementer
 import json
 
 
+def get_children_of_folderish(context):
+    """Return a list of children object of a folder."""
+    brains = api.content.find(
+        context=context,
+        depth=1,
+        sort_on='getObjPositionInParent'
+    )
+    results = [b.getObject() for b in brains]
+    return results
+
+
 @implementer(ISerializeToJson)
 @adapter(IDexterityContent, IBriefyPloneJSONLayer)
 class SerializeToJson(BaseSerializer):
@@ -44,8 +55,7 @@ class SerializeFolderishToJson(SerializeToJson):
     """Serialize a Briefy Folderish object to JSON."""
 
     def _getObjects(self):
-        context = self.context
-        return context.objectValues()
+        return get_children_of_folderish(self.context)
 
     def get_breadcrumbs(self):
         """Return breadcrumbs for this content."""
@@ -147,7 +157,7 @@ class SerializeBlockRosterToJson(SerializeFolderishToJson):
         roster = context.roster
         if roster:
             context = roster.to_object
-            return context.objectValues()
+            return get_children_of_folderish(context)
 
 
 @implementer(ISerializeToJson)
@@ -160,4 +170,4 @@ class SerializeBlockGalleryToJson(SerializeFolderishToJson):
         gallery = context.gallery
         if gallery:
             context = gallery.to_object
-            return context.objectValues()
+            return get_children_of_folderish(context)

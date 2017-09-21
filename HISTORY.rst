@@ -2,6 +2,12 @@
 History
 =======
 
+1.3.5 (2017-09-21)
+------------------
+
+* List children in folder pages (ericof).
+* Filter JSON items using security (ericof).
+
 1.3.4 (2017-09-20)
 ------------------
 
