@@ -10,6 +10,7 @@ RUN mkdir -p /home/plone/.aws
 COPY ./aws_config /home/plone/.aws/config
 
 RUN chown -R plone:plone /plone /home/plone
+RUN pip install libthumbor
 
 USER plone
 
