@@ -15,7 +15,7 @@ with open(os.path.join(here, 'HISTORY.rst')) as f:
 
 requires = [
     'boto3',
-    'libthumbor==1.3.2',
+    'libthumbor',
     'Plone',
     'plone.api',
     'plone.app.contenttypes',

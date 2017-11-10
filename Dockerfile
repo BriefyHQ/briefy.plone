@@ -10,8 +10,8 @@ RUN mkdir -p /home/plone/.aws
 COPY ./aws_config /home/plone/.aws/config
 
 RUN chown -R plone:plone /plone /home/plone
-RUN pip install libthumbor
 
 USER plone
+RUN ./bin/pip install -U setuptools zc.buildout==2.9.5
 
 RUN bin/buildout -Nc docker.cfg
