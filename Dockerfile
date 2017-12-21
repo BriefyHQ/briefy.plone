@@ -12,6 +12,6 @@ COPY ./aws_config /home/plone/.aws/config
 RUN chown -R plone:plone /plone /home/plone
 
 USER plone
-RUN ./bin/pip install -U setuptools zc.buildout==2.9.5
+RUN ./bin/pip install -U setuptools zc.buildout==2.10.0
 
 RUN bin/buildout -Nc docker.cfg
